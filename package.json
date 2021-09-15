@@ -1,0 +1,67 @@
+{
+    "name": "relativize",
+    "displayName": "relativize",
+    "description": "Relativize ES6 imports automatically.",
+    "version": "0.0.1",
+    "repository": "https://github.com/FouadWahabi/vsc-relativize",
+    "galleryBanner": {
+        "color": "#2980b9",
+        "theme": "dark"
+    },
+    "publisher": "FouadWahabi",
+    "engines": {
+		"vscode": "^1.34.0"
+	},
+    "license": "ISC",
+    "categories": [
+        "Programming Languages",
+        "Other"
+    ],
+    "keywords": [
+        "ES6",
+        "ES2015",
+        "Sort",
+        "Sorting",
+        "Import"
+    ],
+    "activationEvents": [
+        "onCommand:extension.relativize",
+        "onLanguage:javascript",
+        "onLanguage:javascriptreact",
+        "onLanguage:typescript",
+        "onLanguage:typescriptreact"
+    ],
+	"main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "relativize.run",
+                "title": "Relativize imports"
+            }
+        ],
+        "configuration": {
+            "title": "Relativize configuration",
+            "properties": {
+                "relativize.onSave": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Automatically relativize on save."
+                }
+            }
+        }
+    },
+    "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"lint": "eslint . --ext .ts,.tsx",
+		"watch": "tsc -watch -p ./"
+	},
+	"devDependencies": {
+		"@types/node": "^12.12.0",
+		"@types/vscode": "^1.34.0",
+		"@typescript-eslint/eslint-plugin": "^4.16.0",
+		"@typescript-eslint/parser": "^4.16.0",
+		"eslint": "^7.21.0",
+		"typescript": "^4.2.2"
+	}
+}
